@@ -96,7 +96,7 @@ python src\preprocessing.py
 
 ### 4. 📊 Generate Analysis & Visualizations
 
-#### Option A: Run Complete Analysis (Recommended)
+#### Run Complete Analysis (Recommended)
 
 ```powershell
 # Generate all visualizations and statistical analysis
