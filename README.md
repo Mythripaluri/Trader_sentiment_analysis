@@ -67,13 +67,6 @@ trader_sentiment_analysis/
 
 ## 🚀 How to Run This Project
 
-### 📋 Prerequisites
-
-- **Python 3.7 or higher** (tested with Python 3.7.13)
-- **Windows PowerShell** (or Command Prompt)
-- **Internet connection** (for downloading datasets)
-- **~500MB free disk space** (for data and visualizations)
-
 ### 1. 🔧 Environment Setup
 
 ```powershell
@@ -87,12 +80,6 @@ python --version  # Should show Python 3.7+
 pip install -r requirements.txt
 ```
 
-**Expected Output:**
-
-```
-Successfully installed pandas-1.3.5 numpy-1.19.0 matplotlib-3.5.3 seaborn-0.12.2 ...
-```
-
 ### 2. 📥 Download & Load Data
 
 ```powershell
@@ -100,30 +87,11 @@ Successfully installed pandas-1.3.5 numpy-1.19.0 matplotlib-3.5.3 seaborn-0.12.2
 python download_data.py
 ```
 
-**Expected Output:**
-
-```
-Starting data download...
-✅ Trader data downloaded successfully
-✅ Sentiment data downloaded successfully
-🎉 Data download and inspection completed!
-```
-
 ### 3. 🔄 Data Preprocessing
 
 ```powershell
 # Run the complete preprocessing pipeline
 python src\preprocessing.py
-```
-
-**Expected Output:**
-
-```
-Starting trader data preprocessing...
-Starting sentiment data preprocessing...
-Merge completed: 184,263 records with sentiment data
-Data saved to data/merged_trader_sentiment_data.csv
-✅ Data Preprocessing Pipeline Completed
 ```
 
 ### 4. 📊 Generate Analysis & Visualizations
@@ -135,54 +103,13 @@ Data saved to data/merged_trader_sentiment_data.csv
 python -c "import pandas as pd; import sys; sys.path.append('src'); from analysis import run_comprehensive_analysis; from visualization import save_all_plots; df = pd.read_csv('data/merged_trader_sentiment_data.csv'); analysis_results = run_comprehensive_analysis(df); plot_files = save_all_plots(df)"
 ```
 
-#### Option B: Run Components Separately
-
-```powershell
-# Statistical analysis only
-python -c "import pandas as pd; import sys; sys.path.append('src'); from analysis import run_comprehensive_analysis; df = pd.read_csv('data/merged_trader_sentiment_data.csv'); results = run_comprehensive_analysis(df)"
-
-# Visualizations only
-python -c "import pandas as pd; import sys; sys.path.append('src'); from visualization import save_all_plots; df = pd.read_csv('data/merged_trader_sentiment_data.csv'); plots = save_all_plots(df)"
-```
-
-**Expected Output:**
-
-```
-🔍 Running Comprehensive Statistical Analysis
-=== Descriptive Statistics by Sentiment ===
-Overall Win Rate: 42.0%
-✅ Comprehensive Statistical Analysis Completed
-Generating visualization plots...
-All plots saved to reports/
-```
-
 ### 5. 🎨 Launch Jupyter Notebook
 
-#### Option A: Simple Notebook (Recommended)
+#### Simple Notebook (Recommended)
 
 ```powershell
 # Launch the simplified, working notebook
 jupyter notebook notebooks\\analysis_simple.ipynb
-```
-
-#### Option B: Complete Analysis Notebook
-
-```powershell
-# If you encounter issues, first enable widget extensions:
-jupyter nbextension enable --py widgetsnbextension --sys-prefix
-
-# Then launch the full notebook
-jupyter notebook notebooks\\01_complete_analysis.ipynb
-```
-
-#### Option C: Use JupyterLab (Alternative)
-
-```powershell
-# Install JupyterLab if not already available
-pip install jupyterlab
-
-# Launch JupyterLab (better compatibility)
-jupyter lab
 ```
 
 ### 6. 🌐 View Interactive Dashboard
@@ -212,7 +139,7 @@ ls reports/
 # Expected: 5 PNG files + 1 HTML file + summary_findings.md
 
 ls notebooks/
-# Expected: 01_complete_analysis.ipynb
+# Expected: 01_complete_analysis.ipynb, analysis_simple.ipynb, .ipynb_checkpoints
 ```
 
 **Expected File Counts:**
@@ -260,38 +187,6 @@ _Statistical relationships between trading metrics and market sentiment_
 ![Time Series](reports/time_series_analysis.png)
 _Temporal analysis of PnL, sentiment, and win rates over time_
 
----
-
-## 🎯 Key Insights & Recommendations
-
-### **🚀 Strategic Recommendations**
-
-1. **📊 Dynamic Position Sizing**
-
-   - Increase positions during Greed periods (higher win probability)
-   - Reduce positions during Fear periods (capital preservation)
-   - Minimize trading during Neutral periods (lowest win rates: 31.7%)
-
-2. **⏰ Market Timing Framework**
-
-   - Focus on quality setups during Greed periods
-   - Avoid over-trading during Fear periods
-   - Use Neutral periods for preparation and analysis
-
-3. **📈 Performance Monitoring**
-   - Track personal performance by sentiment phase
-   - Use Fear/Greed Index as confluence factor
-   - Adapt strategies based on individual correlation patterns
-
-### **⚠️ Risk Considerations**
-
-- Past performance doesn't guarantee future results
-- Analysis limited to Hyperliquid platform and specific time period
-- Should complement, not replace, fundamental analysis
-- Market conditions and behaviors may evolve
-
----
-
 ## 🛠️ Technical Details
 
 ### **Dependencies**
@@ -307,46 +202,6 @@ statsmodels>=0.12.0
 scikit-learn>=0.24.0
 jupyter>=1.0.0
 ```
-
-### **Python Compatibility**
-
-- Tested with Python 3.7+
-
----
-
-## 📚 Documentation
-
-### **Main Files**
-
-- **`summary_findings.md`** - Executive summary with key insights
-- **`01_complete_analysis.ipynb`** - Full analysis notebook
-- **`interactive_dashboard.html`** - Interactive data exploration
-
-### **Code Modules**
-
-- **`data_utils.py`** - Data loading utilities
-- **`preprocessing.py`** - Data cleaning and merging
-- **`visualization.py`** - Chart generation functions
-- **`analysis.py`** - Statistical analysis functions
-
----
-
-## 🎯 Results Summary
-
-### **✅ Validated Hypotheses**
-
-1. **Performance varies significantly by sentiment phase** (p < 0.000001)
-2. **Greed periods offer superior risk-adjusted returns**
-3. **Win rates correlate positively with market optimism**
-4. **Trading behavior adapts to sentiment conditions**
-
-### **💰 Quantified Opportunity**
-
-- **55.5% improvement** in average PnL during Greed periods
-- **3.9 percentage point** higher win rates
-- **Statistical confidence**: 99.9999% (p < 0.000001)
-
----
 
 ---
 
