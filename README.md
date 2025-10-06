@@ -46,7 +46,8 @@ trader_sentiment_analysis/
 │   └── analysis.py               # Statistical testing functions
 │
 ├── notebooks/                    # Jupyter notebooks
-│   └── 01_complete_analysis.ipynb  # Comprehensive analysis notebook
+│   |── 01_complete_analysis.ipynb  # Comprehensive analysis notebook
+|   |── analysis_simple.ipynb
 │
 ├── reports/                      # Generated outputs
 │   ├── summary_findings.md       # Executive summary report
